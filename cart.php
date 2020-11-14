@@ -1,5 +1,8 @@
 <?php include("header.php"); ?>
+<?php include('navbar.php'); ?>
 <!-- Page Content -->
+
+<?php session_start();?>
 
 
 <section class="pt-5 pb-5">
@@ -12,100 +15,75 @@
                 <table id="shoppingCart" class="table table-condensed table-responsive">
                     <thead>
                     <tr>
-                        <th style="width:60%">Product</th>
-                        <th style="width:12%">Price</th>
-                        <th style="width:10%">Quantity</th>
+                        <th style="width:60%">Nazwa</th>
+                        <th style="width:12%">Cena</th>
+                        <th style="width:10%">Ilośc</th>
                         <th style="width:16%"></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td data-th="Product">
-                            <div class="row">
-                                <div class="col-md-3 text-left">
-                                    <img src="https://via.placeholder.com/250x250/5fa9f8/ffffff" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
-                                </div>
-                                <div class="col-md-9 text-left mt-sm-2">
-                                    <h4>Product Name</h4>
-                                    <p class="font-weight-light">Brand &amp; Name</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td data-th="Price">$49.00</td>
-                        <td data-th="Quantity">
-                            <input type="number" class="form-control form-control-lg text-center" value="1">
-                        </td>
-                        <td class="actions" data-th="">
-                            <div class="text-right">
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                    <i class="fas fa-sync"></i>
-                                </button>
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
+<!--                        <td data-th="Product">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-md-3 text-left">-->
+<!--                                    <img src="https://via.placeholder.com/250x250/5fa9f8/ffffff" alt=""-->
+<!--                                         class="img-fluid d-none d-md-block rounded mb-2 shadow ">-->
+<!--                                </div>-->
+<!--                                <div class="col-md-9 text-left mt-sm-2">-->
+<!--                                    <h4>Product Name</h4>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </td>-->
+<!--                        <td data-th="Price">$49.00</td>-->
+<!--                        <td data-th="Quantity">-->
+<!--                            <input type="number" class="form-control form-control-lg text-center" value="1">-->
+<!--                        </td>-->
+<!---->
+<!--                    </tr>-->
+
+                    <?php
+                    $total = 0;
+                    if (isset($_SESSION['cart'])) {
+                        foreach ($_SESSION['cart'] as $key => $value) {?>
+                            <?php $total = $total + $value['price'];?>
+                            <tr>
+                                <td data-th="">
+                                    <div class="row">
+                                        <div class="col-md-3 text-left">
+                                            <img src="<?php echo $value['image'];?>" alt=""
+                                                 class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                        </div>
+                                        <div class="col-md-9 text-left mt-sm-2">
+                                            <h4><?php echo $value['procuctName'];?></h4>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td data-th="Price"><?php echo $value['price'];?></td>
+                                <td data-th="Quantity">
+                                    <input type="number" min="1" max="10" class="form-control form-control-lg text-center" value="<?php echo $value['Quantity'];?>">
+                                </td>
+                        <td>
+                            <form method="post" action="CartManage.php" >
+                                <button name="remove" class="btn btn-outline-danger">Usun</button>
+                                <input type="hidden" name="procuctName" value="<?php echo $value['procuctName'];?>">
+                            </form>
 
                         </td>
-                    </tr>
-                    <tr>
-                        <td data-th="Product">
-                            <div class="row">
-                                <div class="col-md-3 text-left">
-                                    <img src="https://via.placeholder.com/250x250/5fa9f8/ffffff" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
-                                </div>
-                                <div class="col-md-9 text-left mt-sm-2">
-                                    <h4>Product Name</h4>
-                                    <p class="font-weight-light">Brand &amp; Name</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td data-th="Price">$49.00</td>
-                        <td data-th="Quantity">
-                            <input type="number" class="form-control form-control-lg text-center" value="1">
-                        </td>
-                        <td class="actions" data-th="">
-                            <div class="text-right">
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                    <i class="fas fa-sync"></i>
-                                </button>
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td data-th="Product">
-                            <div class="row">
-                                <div class="col-md-3 text-left">
-                                    <img src="https://via.placeholder.com/250x250/5fa9f8/ffffff" alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
-                                </div>
-                                <div class="col-md-9 text-left mt-sm-2">
-                                    <h4>Product Name</h4>
-                                    <p class="font-weight-light">Brand &amp; Name</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td data-th="Price">$49.00</td>
-                        <td data-th="Quantity">
-                            <input type="number" class="form-control form-control-lg text-center" value="1">
-                        </td>
-                        <td class="actions" data-th="">
-                            <div class="text-right">
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                    <i class="fas fa-sync"></i>
-                                </button>
-                                <button class="btn btn-white border-secondary bg-white btn-md mb-2">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
+
+                            </tr>
+
+
+                    <?php }}?>
+
+
+
+
+
                     </tbody>
                 </table>
                 <div class="float-right text-right">
                     <h4>Subtotal:</h4>
-                    <h1>$99.00</h1>
+                    <h1><?php echo $total;?></h1>
                 </div>
             </div>
         </div>

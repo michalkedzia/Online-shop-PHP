@@ -33,7 +33,6 @@ if(isset($_GET['logout'])){
 
 
 
-
     <div class="container">
 
         <div class="row">
@@ -88,22 +87,26 @@ if(isset($_GET['logout'])){
 
                     <?php foreach ($result as $product) { ?>
                         <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="#"><img class="card-img-top" src="<?php echo "images/" . $product["srcImg"] ;?>"  alt="" height="250" ></a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="#"><?php echo $product['productName'];?></a>
-                                    </h4>
-                                    <h5><?php echo $product['price'] . " zł";?></h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
-                                        numquam aspernatur!</p>
+                            <form method="post" action="CartManage.php">
+                                <div class="card h-100">
+                                    <a href="#"><img class="card-img-top" src="<?php echo "images/" . $product["srcImg"] ;?>"  alt="" height="250" ></a>
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            <a href="#"><?php echo $product['productName'];?></a>
+                                        </h4>
+                                        <h5><?php echo $product['price'] . " zł";?></h5>
+                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
+                                            numquam aspernatur!</p>
+
+                                        <input type="hidden" value="<?php echo $product['productName'];?>" name="procuctName" >
+                                        <input type="hidden" value="<?php echo $product['price'];?>" name="price" >
+                                        <input type="hidden" value="<?php echo "images/" . $product["srcImg"] ;?>" name="image" >
+                                        <button type="submit" name="AddToCart" class="btn btn-info">Add to cart</button>
+                                    </div>
                                 </div>
-                                <div class="card-footer">
-                                    <!--                            <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>-->
-                                </div>
-                            </div>
+                            </form>
                         </div>
-                        
+
                     <?php } ?>
 
 
