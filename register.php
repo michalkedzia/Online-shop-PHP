@@ -1,81 +1,86 @@
 <?php include("header.php");?>
+<?php include ('RegisterHandler.php');?>
 
-<form class="form-horizontal row justify-content-center" action='' method="POST">
-    <fieldset>
-        <div id="legend">
-            <legend class="">Rejestracja</legend>
+
+    <div class="panel-heading row justify-content-center">
+        <h3 class="panel-title">Rejestracja</h3>
+    </div>
+
+    <div class=" row justify-content-center">
+
+        <div class="panel-body">
+            <form method="post" action='register.php' >
+                <?php include('errors.php'); ?>
+                <?php include('success.php'); ?>
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="Imie">
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Nazwisko">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="username" id="username" class="form-control input-sm" placeholder="Login">
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" name="phone_number" id="phone_number" class="form-control input-sm" placeholder="Numer telefonu">
+                </div>
+
+
+
+
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="zip_code" id="zip_code" class="form-control input-sm" placeholder="Kod pocztowy">
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="town" id="town" class="form-control input-sm" placeholder="Miasto">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <input type="text" name="street" id="street" class="form-control input-sm" placeholder="Ulica" >
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Hasło">
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Powtórz hasło">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <input type="submit" name="register" id="register" value="Rejestracja" class="btn btn-info btn-block">
+                </div>
+
+                <p class="row justify-content-center"> <a href="login.php">Masz już konto ? Zaloguj się !</a> </p>
+
+            </form>
         </div>
-        <div class="control-group">
-            <!-- Username -->
-            <label class="control-label"  for="username">Login</label>
-            <div class="controls">
-                <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
-            </div>
-        </div>
+    </div>
 
-        <div class="control-group">
-            <!-- E-mail -->
-            <label class="control-label" for="email">E-mail</label>
-            <div class="controls">
-                <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
-            </div>
-        </div>
-
-
-
-        <div class="control-group">
-            <!-- Password-->
-            <label class="control-label" for="phone">Hasło</label>
-            <div class="controls">
-                <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
-            </div>
-        </div>
-
-
-
-
-
-        <div class="control-group">
-            <!-- E-mail -->
-            <label class="control-label" for="phone">Numer telefonu</label>
-            <div class="controls">
-                <input type="text" id="phone" name="phone" placeholder="" class="input-xlarge">
-            </div>
-        </div>
-
-        <div class="control-group">
-            <!-- E-mail -->
-            <label class="control-label" for="street">Ulica</label>
-            <div class="controls">
-                <input type="text" id="street" name="street" placeholder="" class="input-xlarge">
-            </div>
-        </div>
-
-        <div class="control-group">
-            <!-- E-mail -->
-            <label class="control-label" for="town">Miasto</label>
-            <div class="controls">
-                <input type="text" id="town" name="town" placeholder="" class="input-xlarge">
-            </div>
-        </div>
-
-        <div class="control-group">
-            <!-- E-mail -->
-            <label class="control-label" for="zipCode">Kod</label>
-            <div class="controls">
-                <input type="text" id="zipCode" name="zipCode" placeholder="" class="input-xlarge">
-            </div>
-        </div>
-
-
-
-        <div class="control-group">
-            <!-- Button -->
-            <div class="controls">
-                <button class="btn btn-success">Zarejestruj</button>
-            </div>
-        </div>
-    </fieldset>
-</form>
 
 <?php include("footer.php");?>

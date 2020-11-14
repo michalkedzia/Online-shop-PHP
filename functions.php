@@ -1,7 +1,3 @@
 <?php
-
-require ('database/DBController.php');
-require('database/Table.php');
-
-$db = new DBController();
-$table = new Table($db);
+require ('database/DataBase.php');
+$db= new DataBase();

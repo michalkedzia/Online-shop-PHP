@@ -6,6 +6,8 @@ const del = require("del");
 const gulp = require("gulp");
 const merge = require("merge-stream");
 
+
+
 // BrowserSync
 function browserSync(done) {
   browsersync.init({
@@ -16,6 +18,8 @@ function browserSync(done) {
   });
   done();
 }
+
+
 
 // BrowserSync reload
 function browserSyncReload(done) {
