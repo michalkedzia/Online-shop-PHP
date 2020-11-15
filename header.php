@@ -21,12 +21,15 @@ require('functions.php');
     <!-- Custom styles for this template -->
     <link href="css/shop-homepage.css" rel="stylesheet">
 
+
+
 <!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">-->
 
 
 </head>
-<body>
-
+<body >
+<!--style="background: linear-gradient(90deg, rgba(59,68,60,1) 0%, rgba(81,87,81,1) 40%, rgba(73,88,74,1) 84%);-->
+<!--style=" background: linear-gradient(90deg, rgba(68,113,162,1) 0%, rgba(37,37,40,1) 50%, rgba(0,125,255,1) 100%);-->
 <!--<!-- Navigation -->-->
 <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">-->
 <!--    <div class="container">-->

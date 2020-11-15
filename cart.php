@@ -1,8 +1,10 @@
+<?php session_start();?>
+<?php include ('CartManage.php');?>
 <?php include("header.php"); ?>
 <?php include('navbar.php'); ?>
 <!-- Page Content -->
 
-<?php session_start();?>
+
 
 
 <section class="pt-5 pb-5">
@@ -63,7 +65,7 @@
                                     <input type="number" min="1" max="10" class="form-control form-control-lg text-center" value="<?php echo $value['Quantity'];?>">
                                 </td>
                         <td>
-                            <form method="post" action="CartManage.php" >
+                            <form method="post" action="cart.php" >
                                 <button name="remove" class="btn btn-outline-danger">Usun</button>
                                 <input type="hidden" name="procuctName" value="<?php echo $value['procuctName'];?>">
                             </form>

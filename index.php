@@ -12,10 +12,9 @@ if(isset($_GET['logout'])){
     header("Location: login.php");
 }
 
-
 ?>
 
-
+<?php include ('CartManage.php');?>
 
 
 <?php include("header.php"); ?>
@@ -86,9 +85,9 @@ if(isset($_GET['logout'])){
                     <?php $result = $db->getData("product"); ?>
 
                     <?php foreach ($result as $product) { ?>
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <form method="post" action="CartManage.php">
-                                <div class="card h-100">
+                        <div class="col-lg-4 col-md-6 mb-4" >
+                            <form method="post" action="index.php">
+                                <div class="card h-100" style="background: rgb(59,68,60);">
                                     <a href="#"><img class="card-img-top" src="<?php echo "images/" . $product["srcImg"] ;?>"  alt="" height="250" ></a>
                                     <div class="card-body">
                                         <h4 class="card-title">
