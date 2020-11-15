@@ -39,12 +39,19 @@ if(isset($_GET['logout'])){
             <div class="col-lg-3">
 
                 <h1 class="my-4">Kategorie</h1>
-                <div class="list-group">
-                    <?php $result =$db->getData("category"); ?>
-                    <?php foreach ($result as $category) { ?>
-                        <a href="#" class="list-group-item">  <?php echo $category["categoryName"]; ?>  </a>
-                    <?php } ?>
+
+                <div class="filter">
+                    <div class="list-group">
+                        <button  data-name='*' class="list-group-item">All</button>
+                        <?php $result =$db->getData("category"); ?>
+                        <?php foreach ($result as $category) { ?>
+                            <button data-name=".<?php echo $category["categoryName"]; ?>" class="list-group-item">  <?php echo $category["categoryName"]; ?>  </button>
+                        <?php } ?>
+                    </div>
                 </div>
+
+
+
 
             </div>
             <!-- /.col-lg-3 -->
@@ -80,12 +87,21 @@ if(isset($_GET['logout'])){
 
 
 
-                <div class="row">
+                <div class="row grid">
 
                     <?php $result = $db->getData("product"); ?>
 
+<!--                    <div class="grid">-->
                     <?php foreach ($result as $product) { ?>
-                        <div class="col-lg-4 col-md-6 mb-4" >
+
+                            <?php $idcat = $db->prepareData($product["category_idcategory"]);?>
+                            <?php $r = $db->connect->query("SELECT categoryName FROM category WHERE idcategory = '$idcat'") ?>
+                            <?php $row = $r->fetch_row();?>
+
+
+
+                        <div class="col-lg-4 col-md-6 mb-4 grid-item <?php echo $row[0];?>" >
+<!--                            <div class="grid-item flower">-->
                             <form method="post" action="index.php">
                                 <div class="card h-100" style="background: rgb(59,68,60);">
                                     <a href="#"><img class="card-img-top" src="<?php echo "images/" . $product["srcImg"] ;?>"  alt="" height="250" ></a>
@@ -105,9 +121,14 @@ if(isset($_GET['logout'])){
                                     </div>
                                 </div>
                             </form>
+<!--                                </div>-->
                         </div>
 
+
+
+
                     <?php } ?>
+<!--                        </div>-->
 
 
                     <!--                dddddddd-->

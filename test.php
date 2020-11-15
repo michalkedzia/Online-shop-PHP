@@ -1,102 +1,113 @@
-<?php include("header.php"); ?>
+<?php include ('header.php');?>
 
-    <div class="container">
-        <div class="card shopping-cart">
-            <div class="card-header bg-dark text-light">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                Shipping cart
-                <a href="" class="btn btn-outline-info btn-sm pull-right">Continiu shopping</a>
-                <div class="clearfix"></div>
-            </div>
-            <div class="card-body">
-                <!-- PRODUCT -->
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-2 text-center">
-                        <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
-                    </div>
-                    <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-                        <h4 class="product-name"><strong>Product Name</strong></h4>
-                        <h4>
-                            <small>Product description</small>
-                        </h4>
-                    </div>
-                    <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
-                        <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                            <h6><strong>25.00 <span class="text-muted">x</span></strong></h6>
-                        </div>
-                        <div class="col-4 col-sm-4 col-md-4">
-                            <div class="quantity">
-                                <input type="button" value="+" class="plus">
-                                <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
-                                       size="4">
-                                <input type="button" value="-" class="minus">
-                            </div>
-                        </div>
-                        <div class="col-2 col-sm-2 col-md-2 text-right">
-                            <button type="button" class="btn btn-outline-danger btn-xs">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <!-- END PRODUCT -->
-                <!-- PRODUCT -->
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-2 text-center">
-                        <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
-                    </div>
-                    <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-                        <h4 class="product-name"><strong>Product Name</strong></h4>
-                        <h4>
-                            <small>Product description</small>
-                        </h4>
-                    </div>
-                    <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
-                        <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                            <h6><strong>25.00 <span class="text-muted">x</span></strong></h6>
-                        </div>
-                        <div class="col-4 col-sm-4 col-md-4">
-                            <div class="quantity">
-                                <input type="button" value="+" class="plus">
-                                <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
-                                       size="4">
-                                <input type="button" value="-" class="minus">
-                            </div>
-                        </div>
-                        <div class="col-2 col-sm-2 col-md-2 text-right">
-                            <button type="button" class="btn btn-outline-danger btn-xs">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <!-- END PRODUCT -->
-                <div class="pull-right">
-                    <a href="" class="btn btn-outline-secondary pull-right">
-                        Update shopping cart
-                    </a>
-                </div>
-            </div>
-            <div class="card-footer">
-                <div class="coupon col-md-5 col-sm-5 no-padding-left pull-left">
-                    <div class="row">
-                        <div class="col-6">
-                            <input type="text" class="form-control" placeholder="cupone code">
-                        </div>
-                        <div class="col-6">
-                            <input type="submit" class="btn btn-default" value="Use cupone">
-                        </div>
-                    </div>
-                </div>
-                <div class="pull-right" style="margin: 10px">
-                    <a href="" class="btn btn-success pull-right">Checkout</a>
-                    <div class="pull-right" style="margin: 5px">
-                        Total price: <b>50.00€</b>
-                    </div>
-                </div>
-            </div>
+
+<!--<div class="container">-->
+<!---->
+<!--    <div class="col-lg-3">-->
+<!--        <h1 class="my-4">Kategorie</h1>-->
+<!--        <div id="filters" class="list-group">-->
+<!---->
+<!--            <a href="#"  data-filter=".raz" class="list-group-item">raz</a>-->
+<!--            <a href="#"  data-filter=".dwa" class="list-group-item">dwa</a>-->
+<!--            <a href="#"  data-filter=".trzy" class="list-group-item">trzy</a>-->
+<!---->
+<!--        </div>-->
+<!--    </div>-->
+
+>
+
+
+<!--    <div class="col-lg-4 col-md-6 mb-4">-->
+<!--        <div class="card h-100">-->
+<!--            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
+<!--            <div class="card-body">-->
+<!--                <h4 class="card-title">-->
+<!--                    <a href="#">Item Two</a>-->
+<!--                </h4>-->
+<!--                <h5>$24.99</h5>-->
+<!--                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet-->
+<!--                    numquam aspernatur! Lorem ipsum dolor sit amet.</p>-->
+<!--            </div>-->
+<!--            <div class="card-footer">-->
+<!--                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!--    <div class="col-lg-4 col-md-6 mb-4">-->
+<!--        <div class="card h-100">-->
+<!--            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>-->
+<!--            <div class="card-body">-->
+<!--                <h4 class="card-title">-->
+<!--                    <a href="#">Item Three</a>-->
+<!--                </h4>-->
+<!--                <h5>$24.99</h5>-->
+<!--                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet-->
+<!--                    numquam aspernatur!</p>-->
+<!--            </div>-->
+<!--            <div class="card-footer">-->
+<!--                <button class="btn btn-primary" type="submit">Kup</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!---->
+
+
+
+
+<!--<div class="list-group">-->
+<!--    --><?php //$result =$db->getData("category"); ?>
+<!--    --><?php //foreach ($result as $category) { ?>
+<!--        <a href="#" class="list-group-item">  --><?php //echo $category["categoryName"]; ?><!--  </a>-->
+<!--    --><?php //} ?>
+<!--</div>-->
+
+
+<div class="container">
+    <div class="filter">
+        <div class="list-group">
+<!--        <h1>Filtering</h1>-->
+        <button  data-name='*' class="list-group-item">All</button>
+        <button  data-name=".fruit" class="list-group-item">fruit</button>
+        <button  data-name=".flower" class="list-group-item">flower</button>
+        <button  data-name=".bird" class="list-group-item">bird</button>
         </div>
     </div>
-<?php include("footer.php"); ?>
+
+    <div class="grid">
+        <div class="col-lg-4 col-md-6 mb-4 grid-item flower">Rose</div>
+        <div class="col-lg-4 col-md-6 mb-4 grid-item bird">Parrot</div>
+        <div class="col-lg-4 col-md-6 mb-4 grid-item fruit">sad</div>
+        <div class="col-lg-4 col-md-6 mb-4 grid-item flower">Tulip</div>
+        <div class="col-lg-4 col-md-6 mb-4 grid-item bird">Sparrow</div>
+        <div class="col-lg-4 col-md-6 mb-4 grid-item flower">Marigold</div>
+        <div class="col-lg-4 col-md-6 mb-4 grid-item fruit">Orange</div>
+        <div class="col-lg-4 col-md-6 mb-4 -item bird">Owl</div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.1/web-animations.min.js"></script>
+<script src="isotope.pkgd.min.js"></script>
+<script>
+
+    var $grid = $('.grid').isotope({
+        itemSelector: '.grid-item',
+        layoutMode: 'fitRows',
+    });
+    $('.filter button').on("click", function () {
+        var value = $(this).attr('data-name');
+        $grid.isotope({
+            filter: value
+        });
+        $('.filter button').removeClass('active');
+        $(this).addClass('active');
+    })
+
+</script>
+</body>
+</html>
