@@ -99,6 +99,7 @@ if(isset($_GET['logout'])){
 
                                         <input type="hidden" value="<?php echo $product['productName'];?>" name="procuctName" >
                                         <input type="hidden" value="<?php echo $product['price'];?>" name="price" >
+                                        <input type="hidden" value="<?php echo $product['idproduct'];?>" name="idproduct" >
                                         <input type="hidden" value="<?php echo "images/" . $product["srcImg"] ;?>" name="image" >
                                         <button type="submit" name="AddToCart" class="btn btn-info">Add to cart</button>
                                     </div>

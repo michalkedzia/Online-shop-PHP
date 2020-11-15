@@ -23,12 +23,17 @@
                 <!--                </li>-->
             </ul>
             <div>
-<!--                --><?php
-//                    if(isset($_SESSION['cart'])){
-//                        $count=count($_SESSION['cart']);
-//                    }
-//                ?>
-                <a href="cart.php" class="brn btn-outline-success">My cart (0)</a>
+                <?php
+                    $count=0;
+                    if(isset($_SESSION['cart'])){
+//                        $count = count($_SESSION['cart']);
+
+                        foreach ($_SESSION['cart'] as $key => $value) {
+                            $count = $count + $_SESSION['cart'][$key]['Quantity'];
+                        }
+                    }
+                ?>
+                <a href="cart.php" class="brn btn-outline-success">My cart (<?php echo $count;?>)</a>
             </div>
         </div>
     </div>

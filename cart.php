@@ -1,6 +1,7 @@
 <?php session_start();?>
 <?php include ('CartManage.php');?>
 <?php include("header.php"); ?>
+<?php include ('Order.php');?>
 <?php include('navbar.php'); ?>
 <!-- Page Content -->
 
@@ -8,12 +9,11 @@
 
 
 <section class="pt-5 pb-5">
+    <?php include('success.php'); ?>
     <div class="container">
         <div class="row w-100">
             <div class="col-lg-12 col-md-12 col-12">
-                <h3 class="display-5 mb-2 text-center">Shopping Cart</h3>
-                <p class="mb-5 text-center">
-                    <i class="text-info font-weight-bold">3</i> items in your cart</p>
+                <h3 class="display-5 mb-2 text-center">Koszyk :</h3>
                 <table id="shoppingCart" class="table table-condensed table-responsive">
                     <thead>
                     <tr>
@@ -47,7 +47,7 @@
                     $total = 0;
                     if (isset($_SESSION['cart'])) {
                         foreach ($_SESSION['cart'] as $key => $value) {?>
-                            <?php $total = $total + $value['price'];?>
+                            <?php $total = $total + ($value['price'] * $value['Quantity']);?>
                             <tr>
                                 <td data-th="">
                                     <div class="row">
@@ -61,9 +61,15 @@
                                     </div>
                                 </td>
                                 <td data-th="Price"><?php echo $value['price'];?></td>
-                                <td data-th="Quantity">
-                                    <input type="number" min="1" max="10" class="form-control form-control-lg text-center" value="<?php echo $value['Quantity'];?>">
-                                </td>
+                                <form method="post" action="cart.php">
+                                    <td data-th="Quantity">
+                                        <input type="number" name="num" min="1" max="10" class="form-control form-control-lg text-center" value="<?php echo $value['Quantity'];?>">
+                                    </td>
+                                    <td>
+                                        <button name="update" class="btn btn-outline-success">Aktualizuj</button>
+                                        <input type="hidden" name="procuctName" value="<?php echo $value['procuctName'];?>">
+                                    </td>
+                                </form>
                         <td>
                             <form method="post" action="cart.php" >
                                 <button name="remove" class="btn btn-outline-danger">Usun</button>
@@ -90,12 +96,14 @@
             </div>
         </div>
         <div class="row mt-4 d-flex align-items-center">
-            <div class="col-sm-6 order-md-2 text-right">
-                <a href="catalog.html" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">Checkout</a>
-            </div>
+                <div class="col-sm-6 order-md-2 text-right">
+                    <form method="post" action="cart.php">
+                        <button name="order" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">Kup</button>
+                    </form>
+                </div>
             <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">
-                <a href="catalog.html">
-                    <i class="fas fa-arrow-left mr-2"></i> Continue Shopping</a>
+                <a href="index.php">
+                    <i class="fas fa-arrow-left mr-2"></i>Kontynuuj zakupy</a>
             </div>
         </div>
     </div>
