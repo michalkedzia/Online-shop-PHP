@@ -19,24 +19,12 @@
                         }
                     }
                     ?>
-                    <a href="cart.php" class="nav-link">My cart (<?php echo $count; ?>)</a>
+                    <a href="cart.php" class="nav-link">Koszyk (<?php echo $count; ?>)</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index.php?logout='1'">Wyloguj</a>
                 </li>
             </ul>
-            <!--            <div>-->
-            <!--                --><?php
-            //                $count = 0;
-            //                if (isset($_SESSION['cart'])) {
-            //                    foreach ($_SESSION['cart'] as $key => $value) {
-            //                        $count = $count + $_SESSION['cart'][$key]['Quantity'];
-            //                    }
-            //                }
-            //                ?>
-            <!--                <a href="cart.php" class="brn btn-outline-success">My cart (-->
-            <?php //echo $count; ?><!--)</a>-->
-            <!--            </div>-->
         </div>
     </div>
 </nav>

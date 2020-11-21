@@ -10,6 +10,9 @@
             <?php include('success.php'); ?>
         </div>
 
+
+
+
         <div class="container">
             <div class="row w-100">
                 <div class="col-lg-12 col-md-12 col-12">
@@ -42,10 +45,16 @@
                                     </div>
                                 </div>
                             </td>
-                            <td data-th="Price"><?php echo $value['price']; ?></td>
+                            <td data-th="Price"><?php echo $value['price'] . " zł"; ?>
+
+                                <?php
+                                $idproduct=$db->prepareData($value['idproduct']);
+                                $result = $db->connect->query("SELECT quantity FROM product WHERE idproduct = '$idproduct' ");
+                                $result = $result->fetch_row();
+                                ?>
                             <form method="post" action="cart.php">
                                 <td data-th="Quantity">
-                                    <input type="number" name="num" min="1" max="10"
+                                    <input type="number" name="num" min="1" max="<?php echo $result[0];?>"
                                            class="form-control form-control-lg text-center"
                                            value="<?php echo $value['Quantity']; ?>">
                                 </td>
@@ -70,15 +79,15 @@
                         </tbody>
                     </table>
                     <div class="float-right text-right">
-                        <h4>Subtotal:</h4>
-                        <h1><?php echo $total; ?></h1>
+                        <h4>Do zapłaty:</h4>
+                        <h1><?php echo $total . " zł"; ?></h1>
                     </div>
                 </div>
             </div>
             <div class="row mt-4 d-flex align-items-center">
                 <div class="col-sm-6 order-md-2 text-right">
                     <form method="post" action="cart.php">
-                        <button name="order" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">Kup</button>
+                        <button name="order" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">Złóż zamówienie</button>
                     </form>
                 </div>
                 <div class="col-sm-6 mb-3 mb-m-1 order-md-1 text-md-left">

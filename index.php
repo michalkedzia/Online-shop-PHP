@@ -26,7 +26,7 @@ if (isset($_GET['logout'])) {
 
                 <div class="filter" >
                     <div class="list-group"  >
-                        <button data-name='*' class="list-group-item" style="background-color: #9B9D9F">All</button>
+                        <button data-name='*' class="list-group-item" style="background-color: #9B9D9F">Wszystkie</button>
                         <?php $result = $db->getData("category"); ?>
                         <?php foreach ($result as $category) { ?>
                             <button data-name=".<?php echo $category["categoryName"]; ?>"
@@ -73,14 +73,19 @@ if (isset($_GET['logout'])) {
                                     <a href="#"><img class="card-img-top"
                                                      src="<?php echo "images/" . $product["srcImg"]; ?>" alt=""
                                                      height="250"></a>
-                                    <div class="card-body">
+                                    <div class="card-body"  >
                                         <h4 class="card-title">
-                                            <a href="#"><?php echo $product['productName']; ?></a>
+                                            <p><strong><?php echo $product['productName']; ?></strong></p>
                                         </h4>
-                                        <h5><?php echo $product['price'] . " zł"; ?></h5>
+                                        <h5>Cena: <?php echo $product['price'] . " zł"; ?></h5>
+<!--                                        <h4 class="card-title">-->
+<!--                                            <a href="#">--><?php //echo $product['productName']; ?><!--</a>-->
+<!--                                        </h4>-->
+<!--                                        <h5>Cena: --><?php //echo $product['price'] . " zł"; ?><!--</h5>-->
                                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                             Amet
                                             numquam aspernatur!</p>
+                                        <h6>Dostępna ilosc: <?php echo $product['quantity']; ?></h6>
                                         <input type="hidden" value="<?php echo $product['productName']; ?>"
                                                name="procuctName">
                                         <input type="hidden" value="<?php echo $product['price']; ?>" name="price">
@@ -88,9 +93,11 @@ if (isset($_GET['logout'])) {
                                                name="idproduct">
                                         <input type="hidden" value="<?php echo "images/" . $product["srcImg"]; ?>"
                                                name="image">
-                                        <button type="submit" name="AddToCart" class="btn btn-info">Add to cart</button>
+                                        <button type="submit" name="AddToCart" class="btn btn-info" <?php if($product['quantity']==0){echo "disabled";}?>>Dodaj do koszyka</button>
+
                                     </div>
                                 </div>
+
                             </form>
                         </div>
                     <?php } ?>

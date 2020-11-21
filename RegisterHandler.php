@@ -18,46 +18,62 @@ if (isset($_POST['register'])) {
     $passwordConfirm = $db->prepareData(isset($_POST['password_confirmation']) ? $_POST['password_confirmation'] : '');
 
     if (empty($userName)) {
-        array_push($errors, "Username is required");
+        array_push($errors, "Pole: Login jest wymagane");
     }
     if (empty($firstName)) {
-        array_push($errors, "First name is required");
+        array_push($errors, "Pole: Imię jest wymagane");
+    }else{
+        if(!(preg_match('/^[\s\p{L}]+$/u', $firstName))){
+            array_push($errors, "Imię może zawierać tylko litery");
+        }
     }
     if (empty($lastName)) {
-        array_push($errors, "Last name is required");
+        array_push($errors, "Pole: Nazwisko jest wymagane");
+    }else{
+        if(!(preg_match('/^[\s\p{L}]+$/u', $lastName))){
+            array_push($errors, "Nazwisko może zawierać tylko litery");
+        }
     }
     if (empty($email)) {
-        array_push($errors, "Email is required");
+        array_push($errors, "Pole: Email jest wymagane");
     }else{
         if(!(preg_match('/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/', $email))){
-            array_push($errors, "niepoprwaby email");
-        }else array_push($errors, "poprwaby email");
+            array_push($errors, "Niepoprawny format adresu email");
+        }
     }
     if (empty($phone)) {
-        array_push($errors, "Phone is required");
+        array_push($errors, "Pole: Numer telefonu jest wymagane");
+    }else{
+                if(!(preg_match('/^[0-9]{9}+$/', $phone))){
+                    array_push($errors, "Niepoprawny format: Numer telefonu");
+                }
     }
     if (empty($zipCode)) {
-        array_push($errors, "Zip code is required");
+        array_push($errors, "Pole: Kod pocztowy jest wymagane");
     }else{
         if(!(preg_match('/^[0-9]{2}\-[0-9]{3}?$/', $zipCode))){
-            array_push($errors, "niepoprwaby zip code");
+            array_push($errors, "Niepoprawny format: Kod pocztowy");
         }
 //        function isValidZipCode($zipCode) {
 //            return (preg_match('/^[0-9]{5}(-[0-9]{4})?$/', $zipCode)) ? true : false;
 //        }
     }
     if (empty($town)) {
-        array_push($errors, "Town is required");
+        array_push($errors, "Pole: Miasto jest wymagane");
+    }else{
+                if(!(preg_match('/^[\s\p{L}]+$/u', $town))){
+                    array_push($errors, "Miasto może zawierać tylko litery");
+                }
     }
     if (empty($street)) {
-        array_push($errors, "Street is required");
+        array_push($errors, "Pole: Ulica jest wymagane");
     }
     if (empty($password)) {
-        array_push($errors, "Password is required");
+        array_push($errors, "Pole: Hasło jest wymagane");
     }
 
     if ($password != $passwordConfirm) {
-        array_push($errors, "Password not match");
+        array_push($errors, "Hasła nie są takie same");
     }
 
     $result = $db->connect->query("SELECT * FROM user WHERE userName = '$userName' LIMIT 1 ");
@@ -65,7 +81,7 @@ if (isset($_POST['register'])) {
 
     if ($user) {
         if ($user['userName'] === $userName) {
-            array_push($errors, "Username already exist");
+            array_push($errors, "Wybrana nazwa użytkownika jest zajęta");
         }
     }
 
