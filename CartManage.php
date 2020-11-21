@@ -1,12 +1,10 @@
 <?php
-//session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['AddToCart'])) {
         if (isset($_SESSION['cart'])) {
             $contain = false;
             $count = count($_SESSION['cart']);
-
 
             foreach ($_SESSION['cart'] as $key => $value) {
                 if ($value['procuctName'] == $_POST['procuctName']) {
@@ -19,16 +17,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['cart'][$count]['Quantity'] = $_SESSION['cart'][$count]['Quantity'] + 1;
             } else {
                 $items = array_column($_SESSION['cart'], 'procuctName');
-                $_SESSION['cart'][$count] = array('idproduct' => $_POST['idproduct'],'procuctName' => $_POST['procuctName'], 'price' => $_POST['price'], 'image' => $_POST['image'], 'Quantity' => 1);
+                $_SESSION['cart'][$count] = array('idproduct' => $_POST['idproduct'], 'procuctName' => $_POST['procuctName'], 'price' => $_POST['price'], 'image' => $_POST['image'], 'Quantity' => 1);
             }
 
-
-//            $items= array_column($_SESSION['cart'],'procuctName');
-//            $count=count($_SESSION['cart']);
-//            $_SESSION['cart'][$count] =array('procuctName'=>$_POST['procuctName'],'price'=>$_POST['price'],'image'=>$_POST['image'],'Quantity'=>1);
-
         } else {
-            $_SESSION['cart'][0] = array('idproduct' => $_POST['idproduct'],'procuctName' => $_POST['procuctName'], 'price' => $_POST['price'], 'image' => $_POST['image'], 'Quantity' => 1);
+            $_SESSION['cart'][0] = array('idproduct' => $_POST['idproduct'], 'procuctName' => $_POST['procuctName'], 'price' => $_POST['price'], 'image' => $_POST['image'], 'Quantity' => 1);
         }
     }
 
@@ -50,6 +43,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     }
-
-
 }

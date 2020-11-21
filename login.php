@@ -13,7 +13,6 @@
                 <?php include('errors.php'); ?>
                 <?php include('success.php'); ?>
 
-
                 <div class="form-group">
                     <input type="text" name="username" id="username" class="form-control input-sm" placeholder="Login">
                 </div>
@@ -28,11 +27,10 @@
                     <input type="submit" name="login" id="login" value="Zaloguj" class="btn btn-info btn-block">
                 </div>
 
-                <p class="row justify-content-center"><a href="register.php">Nie masz konto ? Zarejestruj sie !</a> </p>
+                <p class="row justify-content-center"><a href="register.php">Nie masz konto ? Zarejestruj sie !</a></p>
 
             </form>
         </div>
     </div>
-
 
 <?php include("footer.php"); ?>

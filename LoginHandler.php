@@ -15,7 +15,6 @@ if (isset($_POST['login'])) {
         array_push($errors, "Password is required");
     }
 
-
     if (count($errors) == 0) {
         $pass = md5($password);
 
@@ -33,10 +32,7 @@ if (isset($_POST['login'])) {
         } else {
             array_push($errors, "Login lub hasło nieprawidłowe");
         }
-
-
     }
-
 }
 
 
