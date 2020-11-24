@@ -16,21 +16,6 @@ require('functions.php');
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/shop-homepage.css" rel="stylesheet">
 
-<!--    <script type = "text/javascript"-->
-<!--            src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">-->
-<!--    </script>-->
-<!---->
-<!--    <script type = "text/javascript" language = "javascript">-->
-<!--        $(document).ready(function() {-->
-<!--            $("a").click(function(event){-->
-<!--                event.preventDefault();-->
-<!--                alert( "Default behavior is disabled!" );-->
-<!--            });-->
-<!--        });-->
-<!--    </script>-->
-
-
-
 </head>
 <body style="background-color: #B4B6B8">
 

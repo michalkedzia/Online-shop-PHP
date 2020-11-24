@@ -22,6 +22,9 @@
                     <a href="cart.php" class="nav-link">Koszyk (<?php echo $count; ?>)</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="history.php">Historia</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="index.php?logout='1'">Wyloguj</a>
                 </li>
             </ul>

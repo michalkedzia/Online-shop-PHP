@@ -8,7 +8,9 @@ if (isset($_POST['order']) and isset($_SESSION['cart'])) {
         $iduser = $db->prepareData($_SESSION['iduser']); //
         $username = $_SESSION['username'];
 
-        $db->connect->query("INSERT INTO userorder (user_iduser,userName) VALUES ('$iduser','$username')");
+        $total = 0.0;
+        foreach ($_SESSION['cart'] as $key => $value){$total=$total + ($value['price'] * $value['Quantity']);}
+        $db->connect->query("INSERT INTO userorder (user_iduser,userName,totalCost) VALUES ('$iduser','$username','$total')");
         $id = mysqli_insert_id($db->connect);
         $db->connect->query("INSERT INTO status (userOrder_iduserOrder, status) VALUES ('$id','Zlozone przez uzytkownika')");
 

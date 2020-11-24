@@ -24,13 +24,15 @@ if (isset($_GET['logout'])) {
             <div class="col-lg-3">
                 <h1 class="my-4">Kategorie</h1>
 
-                <div class="filter" >
-                    <div class="list-group"  >
-                        <button data-name='*' class="list-group-item" style="background-color: #9B9D9F">Wszystkie</button>
+                <div class="filter">
+                    <div class="list-group">
+                        <button data-name='*' class="list-group-item" style="background-color: #9B9D9F">Wszystkie
+                        </button>
                         <?php $result = $db->getData("category"); ?>
                         <?php foreach ($result as $category) { ?>
                             <button data-name=".<?php echo $category["categoryName"]; ?>"
-                                    style="background-color: #9B9D9F" class="list-group-item">  <?php echo $category["categoryName"]; ?>  </button>
+                                    style="background-color: #9B9D9F"
+                                    class="list-group-item">  <?php echo $category["categoryName"]; ?>  </button>
                         <?php } ?>
                     </div>
                 </div>
@@ -73,18 +75,12 @@ if (isset($_GET['logout'])) {
                                     <a href="#"><img class="card-img-top"
                                                      src="<?php echo "images/" . $product["srcImg"]; ?>" alt=""
                                                      height="250"></a>
-                                    <div class="card-body"  >
+                                    <div class="card-body">
                                         <h4 class="card-title">
                                             <p><strong><?php echo $product['productName']; ?></strong></p>
                                         </h4>
                                         <h5>Cena: <?php echo $product['price'] . " zł"; ?></h5>
-<!--                                        <h4 class="card-title">-->
-<!--                                            <a href="#">--><?php //echo $product['productName']; ?><!--</a>-->
-<!--                                        </h4>-->
-<!--                                        <h5>Cena: --><?php //echo $product['price'] . " zł"; ?><!--</h5>-->
-                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                            Amet
-                                            numquam aspernatur!</p>
+                                        <p class="card-text"><?php echo nl2br($product["description"]); ?></p>
                                         <h6>Dostępna ilosc: <?php echo $product['quantity']; ?></h6>
                                         <input type="hidden" value="<?php echo $product['productName']; ?>"
                                                name="procuctName">
@@ -93,11 +89,13 @@ if (isset($_GET['logout'])) {
                                                name="idproduct">
                                         <input type="hidden" value="<?php echo "images/" . $product["srcImg"]; ?>"
                                                name="image">
-                                        <button type="submit" name="AddToCart" class="btn btn-info" <?php if($product['quantity']==0){echo "disabled";}?>>Dodaj do koszyka</button>
-
+                                        <button type="submit" name="AddToCart"
+                                                class="btn btn-info" <?php if ($product['quantity'] == 0) {
+                                            echo "disabled";
+                                        } ?>>Dodaj do koszyka
+                                        </button>
                                     </div>
                                 </div>
-
                             </form>
                         </div>
                     <?php } ?>
