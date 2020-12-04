@@ -14,7 +14,6 @@ if (isset($_POST['order']) and isset($_SESSION['cart'])) {
         $id = mysqli_insert_id($db->connect);
         $db->connect->query("INSERT INTO status (userOrder_iduserOrder, status) VALUES ('$id','Zlozone przez uzytkownika')");
 
-
         foreach ($_SESSION['cart'] as $key => $value) {
 
             $idproduct = $db->prepareData($value['idproduct']);
