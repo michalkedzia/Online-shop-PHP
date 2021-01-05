@@ -17,6 +17,6 @@ require('functions.php');
     <link href="css/shop-homepage.css" rel="stylesheet">
 
 </head>
-<body style="background-color: #B4B6B8">
+<body style="background-color: #E7E7E7">
 
 

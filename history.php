@@ -20,7 +20,9 @@ if (isset($_GET['logout'])) {
     <div class="container">
         <div class="row w-100">
             <div class="col-lg-12 col-md-12 col-12">
-                <h3 class="display-5 mb-2 text-center">Historia twoich zamówień:</h3>
+                <div style="background: #AFAFAF"><h3 class="display-5 mb-2 text-center">Historia twoich zamówień:</h3>
+                </div>
+
                 <div class="list-group">
 
 
@@ -30,7 +32,6 @@ if (isset($_GET['logout'])) {
                     <?php
                     if ($result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) { ?>
-
                             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">Id zamówienia: <?php echo $row['iduserOrder']; ?> </h5>
@@ -46,15 +47,19 @@ if (isset($_GET['logout'])) {
                                             <strong><?php echo "  Ilosć:" . $prod['quantity']; ?></strong></p>
                                     <?php }
                                 } ?>
-                                <small>Status: Zlozone przez uzytkownika.</small>
+
+                                <?php $sts = $db->connect->query("select status.status from status where userOrder_iduserOrder = '$id'");
+                                $sts = $sts->fetch_assoc();
+                                ?>
+                                <small>Status: <?php echo $sts['status'] ?></small>
                             </a>
                         <?php }
                     } ?>
 
                 </div>
+
             </div>
         </div>
-    </div>
     </div>
 
 

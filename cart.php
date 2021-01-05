@@ -10,13 +10,12 @@
             <?php include('success.php'); ?>
         </div>
 
-
-
-
         <div class="container">
             <div class="row w-100">
                 <div class="col-lg-12 col-md-12 col-12">
-                    <h3 class="display-5 mb-2 text-center">Koszyk :</h3>
+
+
+                    <div style="background: #AFAFAF"><h3 class="display-5 mb-2 text-center">Koszyk :</h3></div>
                     <table id="shoppingCart" class="table table-condensed table-responsive">
                         <thead>
                         <tr>
@@ -48,21 +47,21 @@
                             <td data-th="Price"><?php echo $value['price'] . " zł"; ?>
 
                                 <?php
-                                $idproduct=$db->prepareData($value['idproduct']);
+                                $idproduct = $db->prepareData($value['idproduct']);
                                 $result = $db->connect->query("SELECT quantity FROM product WHERE idproduct = '$idproduct' ");
                                 $result = $result->fetch_row();
                                 ?>
-                            <form method="post" action="cart.php">
-                                <td data-th="Quantity">
-                                    <input type="number" name="num" min="1" max="<?php echo $result[0];?>"
-                                           class="form-control form-control-lg text-center"
-                                           value="<?php echo $value['Quantity']; ?>">
-                                </td>
-                                <td>
-                                    <button name="update" class="btn btn-success">Aktualizuj</button>
-                                    <input type="hidden" name="procuctName"
-                                           value="<?php echo $value['procuctName']; ?>">
-                                </td>
+                                <form method="post" action="cart.php">
+                            <td data-th="Quantity">
+                                <input type="number" name="num" min="1" max="<?php echo $result[0]; ?>"
+                                       class="form-control form-control-lg text-center"
+                                       value="<?php echo $value['Quantity']; ?>">
+                            </td>
+                            <td>
+                                <button name="update" class="btn btn-success">Aktualizuj</button>
+                                <input type="hidden" name="procuctName"
+                                       value="<?php echo $value['procuctName']; ?>">
+                            </td>
                             </form>
                             <td>
                                 <form method="post" action="cart.php">
