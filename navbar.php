@@ -10,23 +10,31 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
-                <li class="nav-item">
-                    <?php
-                    $count = 0;
-                    if (isset($_SESSION['cart'])) {
-                        foreach ($_SESSION['cart'] as $key => $value) {
-                            $count = $count + $_SESSION['cart'][$key]['Quantity'];
+                <?php if (!isset($_SESSION['iduser'])) { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Zaloguj</a>
+                    </li>
+                <?php } else { ?>
+                    <li class="nav-item">
+                        <?php
+                        $count = 0;
+                        if (isset($_SESSION['cart'])) {
+                            foreach ($_SESSION['cart'] as $key => $value) {
+                                $count = $count + $_SESSION['cart'][$key]['Quantity'];
+                            }
                         }
-                    }
-                    ?>
-                    <a href="cart.php" class="nav-link">Koszyk (<?php echo $count; ?>)</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="history.php">Historia</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php?logout='1'">Wyloguj</a>
-                </li>
+                        ?>
+                        <a href="cart.php" class="nav-link">Koszyk (<?php echo $count; ?>)</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="history.php">Historia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?logout='1'">Wyloguj</a>
+                    </li>
+
+                <?php } ?>
+
             </ul>
         </div>
 

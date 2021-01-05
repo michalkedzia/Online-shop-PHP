@@ -1,9 +1,11 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['iduser'])) {
-    header("Location: login.php");
-}
+//if (!isset($_SESSION['iduser'])) {
+//    header("Location: login.php");
+//}
+
+
 
 if (isset($_GET['logout'])) {
     $_SESSION = array();
@@ -70,18 +72,18 @@ if (isset($_GET['logout'])) {
                 <?php $idcat = $db->prepareData($product["category_idcategory"]); ?>
                 <?php $r = $db->connect->query("SELECT categoryName FROM category WHERE idcategory = '$idcat'") ?>
                 <?php $row = $r->fetch_row(); ?>
-                <div class="col-sm-6 col-md-3  grid-item <?php echo $row[0]; ?>">
+                <div class="col-sm-6 col-md-3   grid-item <?php echo $row[0]; ?>">
                     <form method="post" action="index.php">
                         <div class="card h-100">
                             <a href="#"><img class="card-img-top"
                                              src="<?php echo "images/" . $product["srcImg"]; ?>" alt=""
                                              height="250"></a>
-                            <div class="card-body">
-                                <h4 class="card-title">
+                            <div class="card-body" >
+                                <h4 class="card-title" style="height: 50px">
                                     <p><strong><?php echo $product['productName']; ?></strong></p>
                                 </h4>
                                 <h5>Cena: <?php echo $product['price'] . " zł"; ?></h5>
-                                <p class="card-text"><?php echo nl2br($product["description"]); ?></p>
+                                <p class="card-text" style="height: 300px"><?php echo nl2br($product["description"]); ?></p>
                                 <h6>Dostępna ilosc: <?php echo $product['quantity']; ?></h6>
                                 <input type="hidden" value="<?php echo $product['productName']; ?>"
                                        name="procuctName">
@@ -93,7 +95,7 @@ if (isset($_GET['logout'])) {
                                 <button type="submit" name="AddToCart"
                                         class="btn btn-info" <?php if ($product['quantity'] == 0) {
                                     echo "disabled";
-                                } ?>>Dodaj do koszyka
+                                } ?> <?php if(!isset($_SESSION['iduser'])) echo "disabled";?>>Dodaj do koszyka
                                 </button>
                             </div>
                         </div>
